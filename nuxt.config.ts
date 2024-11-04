@@ -4,12 +4,26 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', 'nuxt-vuefire'],
   vuefire: {
+    emulators: {
+      // uncomment this line to run the application in production mode without emulators during dev
+      // enabled: false,
+      auth: {
+        options: {
+          disableWarnings: true,
+        },
+      },
+    },
+    auth: {
+      enabled: true
+    },
     config: {
-      apiKey: '...',
-      authDomain: '...',
-      projectId: '...',
-      appId: '...',
-      // there could be other properties depending on the project
+      apiKey: "written in the .env file",
+      authDomain: "written in the .env file",
+      projectId: "written in the .env file",
+      storageBucket: "written in the .env file",
+      messagingSenderId: "written in the .env file",
+      appId: "written in the .env file",
+      measurementId: "written in the .env file"
     },
   },
 })
