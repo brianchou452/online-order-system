@@ -16,7 +16,7 @@ interface Category {
 
 // const storeRef = dbRef(db, 'store')
 
-const categories = useCollection<Category>(collection(db, 'stores', storeId, 'categorise')) // fix typo
+const categories = useCollection<Category>(collection(db, 'stores', storeId, 'categories'))
 const products = useCollection<Product>(collection(db, 'stores', storeId, 'menus'))
 
 console.log("storeId", storeId)
