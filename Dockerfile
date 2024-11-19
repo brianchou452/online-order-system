@@ -17,10 +17,10 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-l
 # Build
 FROM base AS build
 
-COPY --link package.json pnpm-lock.yaml ./
+COPY  package.json pnpm-lock.yaml ./
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
 
-COPY --link . .
+COPY  . .
 
 RUN pnpm run build
 
