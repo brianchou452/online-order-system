@@ -3,15 +3,16 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: ['@nuxt/ui', 'nuxt-vuefire'],
-  nitro: {
-    preset: 'cloudflare-pages',
-  },
-  experimental: {
-    payloadExtraction: false
-  },
-  build: {
-    transpile: ['lucide-vue-next', 'unenv'],
-  },
+  // nitro: {
+  //   preset: 'cloudflare-pages',
+  // },
+  // experimental: {
+  //   payloadExtraction: false
+  // },
+  // build: {
+  //   transpile: ['lucide-vue-next', 'unenv'],
+  // },
+  // ssr: false,
   vuefire: {
     emulators: {
       // uncomment this line to run the application in production mode without emulators during dev
@@ -26,13 +27,13 @@ export default defineNuxtConfig({
       enabled: true
     },
     config: {
-      apiKey: "written in the .env file",
-      authDomain: "written in the .env file",
-      projectId: "written in the .env file",
-      storageBucket: "written in the .env file",
-      messagingSenderId: "written in the .env file",
-      appId: "written in the .env file",
-      measurementId: "written in the .env file"
+      apiKey: "AIzaSyCJp-4e5jzP9WaWT7O_w1Ghy-whp4FL4E4",
+      authDomain: "ipad-pos-dev.firebaseapp.com",
+      projectId: "ipad-pos-dev",
+      storageBucket: "ipad-pos-dev.firebasestorage.app",
+      messagingSenderId: "250070852575",
+      appId: "1:250070852575:web:7931ee8c3341bca34e5a6a",
+      measurementId: "G-PMNQQ3BS4B"
     },
   },
 })
