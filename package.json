@@ -13,11 +13,13 @@
   "dependencies": {
     "@firebase/app-types": "^0.9.2",
     "@nuxt/ui": "^2.18.7",
+    "@pinia/nuxt": "^0.7.0",
     "firebase": "^10.14.1",
     "firebase-admin": "^12.7.0",
     "firebase-functions": "^6.1.0",
     "nuxt": "^3.13.2",
     "nuxt-vuefire": "^1.0.4",
+    "pinia": "^2.2.6",
     "vue": "latest",
     "vue-router": "latest",
     "vuefire": "^3.2.0"

@@ -25,3 +25,6 @@ logs
 
 service-account.json
 emulator
+
+.wrangler
+.firebase

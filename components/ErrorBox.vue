@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import { FirebaseError } from 'firebase/app'
 
 const props = defineProps<{
-  error: unknown
+  error: Error
 }>()
+
 </script>
 
 <template>
   <div class="error-message">
-    <p><strong>Error:</strong> {{ (error as Error).name }}</p>
+    <p><strong>Error:</strong> {{ (props.error as Error).name }}</p>
     <details>
       <summary>Details</summary>
-      <pre><code>{{ error }}</code></pre>
+      <pre><code>{{ props.error }}</code></pre>
     </details>
   </div>
 </template>

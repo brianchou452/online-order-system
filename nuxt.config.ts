@@ -2,17 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', 'nuxt-vuefire'],
-  // nitro: {
-  //   preset: 'cloudflare-pages',
-  // },
-  // experimental: {
-  //   payloadExtraction: false
-  // },
-  // build: {
-  //   transpile: ['lucide-vue-next', 'unenv'],
-  // },
-  // ssr: false,
+  modules: ['@nuxt/ui', 'nuxt-vuefire', '@pinia/nuxt'],
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+  },
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
   vuefire: {
     emulators: {
       // uncomment this line to run the application in production mode without emulators during dev
