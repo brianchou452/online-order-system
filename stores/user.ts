@@ -19,7 +19,7 @@ export const useUserStore = defineStore('user', {
             name: user.value?.displayName ?? '',
             position: 'customer',
             imageName: '',
-            profileImageUrl: user.value?.photoURL ?? '',
+            profileImageUrl: user.value?.photoURL ?? `https://i.pravatar.cc/150?u=${user.value?.uid}`,
             phone: ''
         }
     },
