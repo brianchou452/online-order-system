@@ -6,6 +6,7 @@ const props = defineProps<{
   addToCart: (item: Item) => void;
   removeFromCart: (item: Item) => void;
   showMinus: (item: Item) => boolean;
+  quantity: number;
 }>();
 </script>
 
@@ -14,7 +15,7 @@ const props = defineProps<{
     <div style="display: flex; align-items: center">
       <div style="flex: 1">
         <h3>{{ props.product.name }}</h3>
-        <p>Price: ${{ props.product.price.toFixed(2) }}</p>
+        <p cl>${{ props.product.price.toFixed(2) }}</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center">
         <!-- <img
@@ -28,19 +29,30 @@ const props = defineProps<{
           class="object-cover w-24 h-24 rounded-lg"
         />
         <div class="relative w-full h-full">
-          <UButton
-            @click="props.addToCart(props.product)"
-            class="absolute bottom-2.5 right-1.5"
-            :ui="{ rounded: 'rounded-full' }"
-            icon="i-material-symbols:add"
-          />
-          <UButton
-            v-if="props.showMinus(props.product)"
-            @click="props.removeFromCart(props.product)"
-            class="absolute bottom-2.5 right-4.5"
-            :ui="{ rounded: 'rounded-full' }"
-            icon="i-ic:baseline-minus"
-          />
+          <div class="absolute bottom-2.5 right-0 w-full">
+            <div
+              class="flex flex-wrap flex-row-reverse items-center justify-evenly"
+            >
+              <UButton
+                @click="props.addToCart(props.product)"
+                :ui="{ rounded: 'rounded-full' }"
+                icon="i-material-symbols:add"
+              />
+
+              <p class="w-3">
+                {{ props.quantity }}
+              </p>
+
+              <UButton
+                @click="props.removeFromCart(props.product)"
+                :ui="{ rounded: 'rounded-full' }"
+                icon="i-ic:baseline-minus"
+                v-bind:style="{
+                  visibility: props.showMinus(props.product) ? '' : 'hidden',
+                }"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

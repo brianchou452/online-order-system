@@ -74,7 +74,7 @@ onUnmounted(() => {
 
     <UHorizontalNavigation
       :links="headers"
-      class="border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-white dark:bg-stone-900"
+      class="border-b border-gray-200 dark:border-gray-800 sticky top-0 bg-white dark:bg-stone-900 z-50"
       :ui="{
         container: 'flex-nowrap items-center overflow-x-scroll no-scrollbar',
         inner: '',
@@ -101,10 +101,21 @@ onUnmounted(() => {
             :addToCart="cart.addItem"
             :removeFromCart="cart.removeItem"
             :showMinus="cart.hasItem"
+            :quantity="cart.getQuantity(product)"
           />
         </div>
       </section>
-      <UButton label="Open" @click="cart.isOpen = true" />
+      <div class="fixed bottom-4 right-4 z-50">
+        <UChip :text="cart.$state.cartItems.length" size="3xl">
+          <UButton
+            @click="cart.isOpen = true"
+            icon="i-material-symbols:shopping-cart"
+            color="primary"
+            size="xl"
+            padded
+          />
+        </UChip>
+      </div>
     </UContainer>
     <UModal v-model="cart.isOpen" fullscreen>
       <Cart />

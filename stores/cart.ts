@@ -28,6 +28,7 @@ interface Orders {
     items: CartItem[]
     total: number
     status: string
+    paymentMethod: string
     createdAt: Date
     updatedAt: Date
 }
@@ -74,6 +75,11 @@ export const useCartStore = defineStore('cart', {
             return this.cartItems.some((x) => x.name === item.name) // FIXME: use ID
         },
 
+        getQuantity(item: Item): number {
+            const i = this.cartItems.findIndex((x) => x.name === item.name) // FIXME: use ID
+            return i > -1 ? this.cartItems[i].quantity : 0
+        },
+
         async purchaseItems() {
             const db = useFirestore();
             const user = useUserStore()
@@ -86,6 +92,7 @@ export const useCartStore = defineStore('cart', {
                 createdAt: new Date(),
                 updatedAt: new Date(),
                 status: 'pending',
+                paymentMethod: 'unPaid'
             })
             this.clearCart()
         },

@@ -5,6 +5,7 @@ export interface User {
     profileImageUrl?: string
     position: string
     imageName: string
+    phone: string
 }
 
 
@@ -16,12 +17,17 @@ export const useUserStore = defineStore('user', {
             userID: user.value?.uid ?? '',
             email: user.value?.email ?? '',
             name: user.value?.displayName ?? '',
-            position: '',
+            position: 'customer',
             imageName: '',
             profileImageUrl: user.value?.photoURL ?? '',
+            phone: ''
         }
     },
     actions: {
+        updateUser(email: string, name: string) {
+            this.email = email
+            this.name = name
+        },
         logout() {
             this.userID = ''
             this.email = ''
