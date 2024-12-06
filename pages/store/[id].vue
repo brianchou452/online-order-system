@@ -25,8 +25,6 @@ const products = useCollection<Item>(
   collection(db, "stores", storeId, "menus")
 );
 
-console.log("user", user);
-
 const headers = categories.value.map((category) => {
   return {
     label: category.name,
@@ -122,3 +120,9 @@ onUnmounted(() => {
     </UModal>
   </main>
 </template>
+
+<style>
+html {
+  scroll-behavior: smooth;
+}
+</style>
