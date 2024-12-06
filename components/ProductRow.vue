@@ -15,7 +15,7 @@ const props = defineProps<{
     <div style="display: flex; align-items: center">
       <div style="flex: 1">
         <h3>{{ props.product.name }}</h3>
-        <p cl>${{ props.product.price.toFixed(2) }}</p>
+        <p>${{ props.product.price.toFixed(2) }}</p>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center">
         <!-- <img
@@ -37,6 +37,7 @@ const props = defineProps<{
                 @click="props.addToCart(props.product)"
                 :ui="{ rounded: 'rounded-full' }"
                 icon="i-material-symbols:add"
+                class="touch-manipulation"
               />
 
               <p class="w-3">
@@ -47,6 +48,7 @@ const props = defineProps<{
                 @click="props.removeFromCart(props.product)"
                 :ui="{ rounded: 'rounded-full' }"
                 icon="i-ic:baseline-minus"
+                class="touch-manipulation"
                 v-bind:style="{
                   visibility: props.showMinus(props.product) ? '' : 'hidden',
                 }"

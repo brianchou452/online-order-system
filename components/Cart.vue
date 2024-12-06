@@ -61,11 +61,18 @@ const checkout = async () => {
       <UCard>
         <div v-if="cartStore.cartItems.length === 0">您的購物車是空的</div>
         <div v-else>
-          <ul>
-            <li v-for="item in cartStore.cartItems" :key="item.imagekey">
-              {{ item.name }} - {{ item.quantity }} x {{ item.price }} 元
-            </li>
-          </ul>
+          <template v-for="(item, index) in cartStore.cartItems">
+            <CartRow
+              :product="item"
+              :addToCart="cartStore.addItem"
+              :removeFromCart="cartStore.removeItem"
+              :quantity="cartStore.getQuantity(item)"
+              class="my-2"
+            />
+            <v-divider v-if="index !== cartStore.cartItems.length - 1">
+              <UDivider size="2xs" />
+            </v-divider>
+          </template>
         </div>
       </UCard>
 
