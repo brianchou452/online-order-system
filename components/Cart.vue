@@ -36,7 +36,7 @@ const checkout = async () => {
       rounded: '',
       divide: 'divide-y divide-gray-100 dark:divide-gray-800',
       body: {
-        base: 'grow',
+        base: 'grow overflow-auto',
       },
     }"
   >
