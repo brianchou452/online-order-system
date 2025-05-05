@@ -40,7 +40,14 @@ const props = defineProps<{
                 class="touch-manipulation"
               />
 
-              <p class="w-3">
+              <p
+                class="w-3"
+                v-bind:style="{
+                  visibility: props.showMinus(props.product)
+                    ? 'visible'
+                    : 'hidden',
+                }"
+              >
                 {{ props.quantity }}
               </p>
 
